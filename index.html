@@ -1,11 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/2919964776.js" crossorigin="anonymous"></script>
+  <script src="app.js" defer></script>
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+  </script>
+  <script type="text/javascript">
+    (function(){
+        emailjs.init("yiQK0OfNujiCgNnPB");
+    })();
+  </script>
+  <title>Victor Lopez</title>
 </head>
+
+
 <body>
+  <section id="landing-page" onmousemove="moveBackground(event)">
+    <nav>
+      <figure class="nav__logo--wrapper">
+        <i class="fa-solid fa-v"></i>
+          <i class="fa-solid fa-l nav__logo"></i>
+      </figure>
+      <ul class="nav__link--list">
+        <li class="nav__link">
+          <a href="#" class="
+          nav__anchor
+          link__hover--effect
+          link__hover--effect--black">
+            Projects
+          </a>
+        </li>
+        <li class="nav__link" onclick="toggleModal()">
+          <a href="#" class="
+          nav__anchor
+          link__hover--effect
+          link__hover--effect--black">
+            Contact
+          </a>
+        </li>
+        <li class="nav__link" onclick="toggleContrast()">
+          <a href="#" class="
+          nav__anchor
+          link__hover--effect
+          link__hover--effect--black">
+            <i class="fa-solid fa-circle-half-stroke dark__mode"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <header class="header__container">
+      <h1 class="header__title">Hey</h1>
+      <h1 class="header__title"><span class="text__color--blue">I'm Victor.</span></h1>
+      <p class="header__para">
+        I'm a <span class="text__color--blue">Frontend Software Engineer</span> with a 
+        strong passion for building web applications 
+        with great user experiences.
+      </p>
+      <p class="header__para">
+        Here's a bit more <a href="#" class="header__para--link text__color--blue" onclick="toggleModal()">about me.</a>
+        <i class="fa-regular fa-hand-point-left header__point_icon"></i>
+      </p>
+
+      <div class="social__media--links">
+        <a href="" class="header__links click">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a href="" class="header__links click">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="" class="header__links click">
+          <i class="fa-regular fa-file-lines"></i>
+        </a>
+      </div>
+    </header>
     
+    <a href="#projects" class="scroll">
+      <div class="scroll__icon click"></div>
+    </a>
+    <a href="#">
+      <button class="mail click" onclick="toggleModal()">
+        <i class="fa-solid fa-envelope"></i>
+      </button>
+    </a>
+
+    <div class="modal">
+      
+      <div class="modal__half modal__about">
+        <h2>Here's a bit about me.</h2>
+        <p class="modal__heading first___modal--heading">Frontend Software Engineer</p>
+        <p class="about__para">
+          I'm a 22 year-old Latino <span class="text__color--blue">frontend software Engineer</span>
+          with experience developing <span class="text__color--blue">sleek, responsive</span>
+          websites with a <span class="text__color--blue">minimalistic</span> approach.
+        </p>
+        <p class="about__para second__para">
+          I have an interest in <span class="text__color--blue">app development</span>
+          as well as <span class="text__color--blue">game development.</span>
+          On my free time I enjoy making music or playing video games.
+        </p>
+        
+        <p class="tech__stack">My Tech Stack</p>
+        <div class="stack__container">
+          <figure class="tech__stack--wrapper">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/240px-HTML5_Badge.svg.png" alt="HTML" class="tech__img">
+            <span class="language__name">HTML</span>
+          </figure>
+          <figure class="tech__stack--wrapper">
+            <img src="https://cdn.iconscout.com/icon/free/png-256/css-131-722685.png" alt="HTML" class="tech__img">
+            <span class="language__name">CSS</span>
+          </figure>
+          <figure class="tech__stack--wrapper">
+            <img src="https://cdn.iconscout.com/icon/free/png-256/javascript-1-225993.png" alt="HTML" class="tech__img">
+            <span class="language__name">JAVASCRIPT</span>
+          </figure>
+          <figure class="tech__stack--wrapper">
+            <img src="https://cdn.iconscout.com/icon/free/png-256/react-3-1175109.png" alt="HTML" class="tech__img">
+            <span class="language__name">REACT</span>
+          </figure>
+        </div>
+      </div>
+      
+      <div class="modal__half modal__contact">
+        <i class="fa-regular fa-circle-xmark x__icon click" onclick="toggleModal()"></i>
+        <h2>Lets have a chat!</h2>
+        <p class="modal__heading">I'm open to new opportunities</p>
+
+        <form id="contact__form" onsubmit="contact(event)">
+          <div class="form__item">
+            <label for="name" class="form__label">Name</label>
+            <input type="text" name="user_name" class="form__input" required>
+          </div>
+
+          <div class="form__item">
+            <label for="email" class="form__label">Email</label>
+            <input type="email" name="user_email" class="form__input" required>
+          </div>
+
+          <div class="form__item">
+            <label for="message" class="form__label">Message</label>
+            <textarea name="message" id="" cols="20" rows="5" class="form__input" required></textarea>
+          </div>
+
+          <div class="btn__wrapper">
+            <button class="form__btn btn__click">Send it my way</button>
+          </div>
+        </form>
+        <div class="modal__overlay modal__overlay--loading">
+          <i class="fa-solid fa-spinner loading__icon"></i>
+        </div>
+        <div class="modal__overlay modal__overlay--success">
+          Thanks for the message! looking forward to speaking with you soon.
+        </div>
+      </div>
+    </div>
+
+    <img src="./assets/semi circle.svg" class="shape shape--0">
+    <img src="./assets/circle.svg" class="shape shape--1">
+    <img src="./assets/squiggly.svg" class="shape shape--2">
+    <img src="./assets/triangle.svg" class="shape shape--3">
+    <img src="./assets/semi circle.svg" class="shape shape--4">
+    <img src="./assets/circle.svg" class="shape shape--5">
+    <img src="./assets/squiggly.svg" class="shape shape--6">
+    <img src="./assets/triangle.svg" class="shape shape--7">
+    <img src="./assets/semi circle.svg" class="shape shape--8">
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <div class="row">
+        <h1 class="section__title">Here are some of my <span class="text__color--blue special__font">projects</span></h1>
+        
+        <ul class="project__list">
+          <li class="project">
+            <div class="project__wrapper">
+              <img src="./assets/cvpaintingservicesllc.png" alt="project 1" class="project__img">
+             
+              <div class="project__wrapper--background"></div>
+                <div class="project__description">
+                  <h3 class="project__description--title">
+                    CV Painting Services LLC
+                  </h3>
+                  <h4 class="project__description--sub-title">
+                    HTML, CSS, JAVASCRIPT
+                  </h4>
+                  <p class="project__description--para">
+                    A painting company website detailing the type of work they do.
+                    from painting to maintenance. The website showcases a bright welcoming
+                    asthetic to welcome in the customer, as well as a minimalistic aproach
+                    to contacting the company.
+                  </p>
+                  <div class="project__description--links">
+                    <a href="https://cvpaintingservices.net/" class="project__description--link" target="_blank">
+                      <i class="fa-solid fa-link click"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="project">
+              <div class="project__wrapper">
+                <img src="./assets/book_store.png" alt="project 1" class="project__img">
+               
+                <div class="project__wrapper--background"></div>
+                  <div class="project__description">
+                    <h3 class="project__description--title">
+                      Library
+                    </h3>
+                    <h4 class="project__description--sub-title">
+                      HTML, CSS, JAVASCRIPT
+                    </h4>
+                    <p class="project__description--para">
+                      A small mock up of a bookstore website, showcasing
+                      a minimalistic aproach to an e-commerce website.
+                      The bright pink helps give a soft feeling to the website.
+                    </p>
+                    <div class="project__description--links">
+                      <a href="https://vlopez014.github.io/Book_Store/index.html" class="project__description--link">
+                        <i class="fa-solid fa-link click"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="project">
+                <div class="project__wrapper">
+                  <img src="./assets/Treact.png" alt="project 1" class="project__img">
+                 
+                  <div class="project__wrapper--background"></div>
+                    <div class="project__description">
+                      <h3 class="project__description--title">
+                        Treact
+                      </h3>
+                      <h4 class="project__description--sub-title">
+                        HTML, CSS, JAVASCRIPT
+                      </h4>
+                      <p class="project__description--para">
+                        A website mockup that sells templates.
+                        the sleek design as well as the color theory
+                        makes the website pop. The website showcases
+                        how much a simple website can look great.
+                      </p>
+                      <div class="project__description--links">
+                        <a href="https://vlopez014.github.io/One-to-One__Practice/" class="project__description--link">
+                          <i class="fa-solid fa-link click"></i>
+                        </a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+          </ul> 
+        </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="row footer__row">
+          <a href="#landing-page" class="footer__logo--link">
+            <i class="fa-solid fa-v"></i>
+            <i class="fa-solid fa-l footer__logo"></i>
+            
+            <div class="top__icon">
+              Top
+              <i class="fa-regular fa-hand-pointer pointing__icon"></i>
+            </div>
+          </a>
+
+        <ul class="footer__list--container">
+          <li class="footer__links">
+            <a href="https://github.com/VLopez014" class="
+            footer__link 
+            link__hover--effect
+            link__hover--effect--white">
+              Github
+            </a>
+          </li>
+
+          <li class="footer__links" onclick="toggleModal()">
+            <a href="#" class="
+            footer__link 
+            link__hover--effect
+            link__hover--effect--white">
+              Contact
+            </a>
+          </li>
+
+        </ul>
+
+        <div class="copyright">Copyright &copy; 2023 Victor Lopez</div>
+      </div>
+    </div>
+
+  </footer>
+  
 </body>
 </html>
